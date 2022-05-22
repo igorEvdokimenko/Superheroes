@@ -1,0 +1,83 @@
+<% layout("layouts/boilerplate") %> 
+<div class="row">
+  <h1 class="text-center">Update Superhero</h1>
+  <div class="col-6 offset-3">
+    <form action="/superheroes/<%= superhero._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label class="form-label" for="nickname">Nickname</label>
+        <input
+          class="form-control"
+          type="text"
+          id="nickname"
+          name="superhero[nickname]"
+          value="<%= superhero.nickname %>"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="real_name">Real name</label>
+        <input
+          class="form-control"
+          type="text"
+          id="real_name"
+          name="superhero[real_name]"
+          value="<%= superhero.real_name %>"
+        />
+        <div class="mb-3">
+            <label class="form-label" for="origin_description">Description</label>
+            <textarea
+              class="form-control"
+              type="text"
+              id="origin_description"
+              name="superhero[origin_description]"
+            ><%= superhero.origin_description %> </textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="superpowers">Superpowers</label>
+            <input
+              class="form-control"
+              type="text"
+              id="superpowers"
+              name="superhero[superpowers]"
+              value="<%= superhero.superpowers %>"
+            />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="catch_phrase">Catch phrase</label>
+        <input
+          class="form-control"
+          type="text"
+          id="catch_phrase"
+          name="superhero[catch_phrase]"
+          value="<%= superhero.catch_phrase%>"
+        />
+       </div>
+       <div class="mb-3">
+        <label class="form-label" for="image"> Add images</label>
+        <input
+          class="form-control"
+          type="file"
+          id="image"
+          name="images"
+          multiple
+        />
+      </div>
+      <div class="mb-3">
+        <% superhero.images.forEach((img,i)=>{ %> 
+           <img src="<%= img.url %>" class="img-thumbnail w-25" alt="">
+           <% if(superhero.images.length > 1) { %> 
+           <div class="form-check-inline">
+             <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%= img.filename %>">
+           </div>
+           <label for="image-<%= i %>">Delete ?</label>
+           <% } %> 
+        <% }) %> 
+      </div>
+      <div class="mb-3 d-inline">
+        <button class="btn btn-info ">Update superhero</button>
+      </div>
+      <a href="/superheroes/<%= superhero._id %>" class="card-link btn btn-warning">Back</a>
+    </form>
+  </div>
+</div>
+
+

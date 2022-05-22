@@ -1,0 +1,66 @@
+<% layout("layouts/boilerplate") %>
+<div class="row">
+  <h1 class="text-center">Add Superhero</h1>
+  <div class="col-6 offset-3">
+    <form action="/superheroes" method="POST" enctype="multipart/form-data" >
+      <div class="mb-3">
+        <label class="form-label" for="nickname">Nickname</label>
+        <input
+          class="form-control"
+          type="text"
+          id="nickname"
+          name="superhero[nickname]"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="real_name">Real name</label>
+        <input
+          class="form-control"
+          type="text"
+          id="real_name"
+          name="superhero[real_name]"
+        />
+        <div class="mb-3">
+            <label class="form-label" for="origin_description">Description</label>
+            <textarea
+              class="form-control"
+              type="text"
+              id="origin_description"
+              name="superhero[origin_description]"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="superpowers">Superpowers</label>
+            <input
+              class="form-control"
+              type="text"
+              id="superpowers"
+              name="superhero[superpowers]"
+            />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="catch_phrase">Catch phrase</label>
+        <input
+          class="form-control"
+          type="text"
+          id="catch_phrase"
+          name="superhero[catch_phrase]"
+        />
+       </div>
+       <div class="mb-3">
+        <label class="form-label" for="image">Image</label>
+        <input
+          class="form-control"
+          type="file"
+          id="image"
+          name="images"
+          multiple
+        />
+      </div>
+      <div class="mb-3 d-inline">
+        <button class="btn btn-success ">Add superhero</button>
+      </div>
+      <a href="/superheroes" class="card-link btn btn-warning">All Superheroes</a>
+    </form  >
+  </div>
+</div>
